@@ -5,12 +5,19 @@ import { Grid } from "./styles";
 import { Gift } from "../Gift";
 
 const ListOfGifts = () => {
-  const { totalGifts, setTotalGifts } = useContext(AppContext);
+  const {
+    totalGifts: { gifts, loading, error },
+    setTotalGifts,
+  } = useContext(AppContext);
 
-  const { gifts, loading, error } = useGetGifts({
+  const initialGifts = useGetGifts({
     endpoint: "trending",
     limit: 15,
   });
+
+  useEffect(() => {
+    setTotalGifts(initialGifts);
+  }, [initialGifts]);
 
   return (
     <Grid>

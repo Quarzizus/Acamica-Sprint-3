@@ -3,7 +3,11 @@ import { createContext, useState } from "react";
 const AppContext = createContext(null);
 
 const ContextProvider = ({ children }) => {
-  const [totalGifts, setTotalGifts] = useState(null);
+  const [totalGifts, setTotalGifts] = useState({
+    gifts: [],
+    loading: false,
+    error: null,
+  });
 
   const value = {
     totalGifts,
