@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-const useGetGifts = ({ endpoint = "trending", limit = 15, q = "" } = {}) => {
+const useGetGifts = ({
+  endpoint = "trending",
+  limit = 15,
+  q = "",
+  dependencies = [],
+} = {}) => {
   const [gifts, setGifts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -23,7 +28,7 @@ const useGetGifts = ({ endpoint = "trending", limit = 15, q = "" } = {}) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, dependencies);
 
   return { gifts, loading, error };
 };

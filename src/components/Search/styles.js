@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
-const SearchComponent = styled.section`
-  height: 50px;
+const ContainerSearch = styled.section`
+  display: flex;
+  flex-direction: column;
   width: 70%;
-  max-width: 500px;
+`;
+
+const SearchComponent = styled.section`
+  width: 100%;
+  height: 50px;
   display: flex;
   align-items: center;
   border-radius: 25px;
   border: 1px solid #4a1ee3;
+  position: relative;
 `;
 
 const Input = styled.input`
@@ -31,4 +37,4 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export { SearchComponent, Input, Button };
+export { SearchComponent, Input, Button, ContainerSearch };
