@@ -4,7 +4,7 @@ const useGetGifts = ({
   endpoint = "trending",
   limit = 15,
   q = "",
-  dependencies = [],
+  dependencies = [q],
 } = {}) => {
   const [gifts, setGifts] = useState([]);
   const [error, setError] = useState(null);

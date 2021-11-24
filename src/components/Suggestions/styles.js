@@ -7,11 +7,11 @@ const Suggestions = styled.ul`
     css`
       border: 1px solid #4a1ee3;
     `};
-  bottom: -10px;
-  position: relative;
   border-radius: 20px;
   overflow: hidden;
   list-style: none;
+  position: absolute;
+  top: 55px;
   z-index: 1;
   li {
     display: flex;
@@ -23,7 +23,7 @@ const Suggestions = styled.ul`
     background-color: white;
   }
   li:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(142, 144, 143, 1);
   }
 `;
 

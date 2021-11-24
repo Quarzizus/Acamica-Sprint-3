@@ -1,4 +1,4 @@
-import { HeroComponent, Img } from "./styles";
+import { HeroComponent, Wrapper } from "./styles";
 import HeroImage from "../../images/HeroImage.svg";
 
 const Hero = ({ children }) => {
@@ -7,8 +7,10 @@ const Hero = ({ children }) => {
       <h2>
         ¡Inpirate y busca los mejores <span>gifts</span>!
       </h2>
-      <Img src={HeroImage} />
-      {children}
+      <Wrapper>
+        <img src={HeroImage} />
+        {children}
+      </Wrapper>
       <p>Resultados de la busqueda</p>
     </HeroComponent>
   );

@@ -1,26 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-import { useGetGifts } from "../../hooks/useGetGifts";
 import { Grid } from "./styles";
 import { Gift } from "../Gift";
+import { useGetGifts } from "../../hooks/useGetGifts";
 
 const ListOfGifts = () => {
-  const {
-    totalGifts: { gifts, loading, error },
-    setTotalGifts,
-  } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
-  const initialGifts = useGetGifts({
-    endpoint: "trending",
-    limit: 15,
-  });
-
-  useEffect(() => {
-    setTotalGifts(initialGifts);
-  }, [initialGifts]);
+  const { gifts, loading, error } = useGetGifts(state); // {trending, 15}
 
   return (
     <Grid>
+      {console.log(state)}
       {error && <h2>Error</h2>}
       {loading && <h2>Loading</h2>}
       {!error &&

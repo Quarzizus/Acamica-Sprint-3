@@ -3,7 +3,8 @@ import styled from "styled-components";
 const ContainerSearch = styled.section`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
+  position: relative;
 `;
 
 const SearchComponent = styled.section`
@@ -13,7 +14,6 @@ const SearchComponent = styled.section`
   align-items: center;
   border-radius: 25px;
   border: 1px solid #4a1ee3;
-  position: relative;
 `;
 
 const Input = styled.input`

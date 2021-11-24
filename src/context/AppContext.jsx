@@ -1,17 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const AppContext = createContext(null);
 
 const ContextProvider = ({ children }) => {
-  const [totalGifts, setTotalGifts] = useState({
-    gifts: [],
-    loading: false,
-    error: null,
+  const [state, setState] = useState({
+    endpoint: "trending",
+    limit: 15,
+    q: "",
   });
 
+  const handlerSearch = ({ endpoint, q }) => {
+    setState({ endpoint, q });
+  };
+
   const value = {
-    totalGifts,
-    setTotalGifts,
+    state,
+    handlerSearch,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

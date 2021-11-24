@@ -6,7 +6,8 @@ const HeroComponent = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 20px 0;
   h2,
   p {
     color: #4a1ee3;
@@ -26,8 +27,11 @@ const HeroComponent = styled.section`
   }
 `;
 
-const Img = styled.img`
-  position: relative;
+const Wrapper = styled.section`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-export { HeroComponent, Img };
+export { HeroComponent, Wrapper };

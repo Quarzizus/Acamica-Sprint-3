@@ -17,6 +17,7 @@ const Button = styled.button`
   text-transform: uppercase;
   height: 40px;
   padding: 0 10px;
+  cursor: pointer;
 `;
 
 export { HeaderComponent, Button };
