@@ -9,6 +9,7 @@ import { AppContext } from "../../context/AppContext";
 const Search = () => {
   const { handlerSearch } = useContext(AppContext);
   const [inputSearchValue, setInputSearchValue] = useState("");
+  const [isSearch, setIsSearch] = useState(false);
 
   const { gifts } = useGetGifts({
     endpoint: "search/tags", // autocomplete
@@ -17,8 +18,17 @@ const Search = () => {
     dependencies: [inputSearchValue],
   });
 
+  const handlerEnter = (e) => {
+    if (e.key === "Enter") {
+      handlerSearch({ endpoint: "search", q: inputSearchValue });
+      e.target.value = "";
+      setIsSearch(false);
+    }
+  };
+
   const handlerChange = (e) => {
     setInputSearchValue(e.target.value);
+    setIsSearch(true);
   };
   return (
     <ContainerSearch>
@@ -27,6 +37,7 @@ const Search = () => {
           type="search"
           placeholder="Busca gifts"
           onChange={handlerChange}
+          onKeyPress={handlerEnter}
         />
         <Button
           onClick={() => {
@@ -39,7 +50,12 @@ const Search = () => {
           <img src={IconSearchWhite} />
         </Button>
       </SearchComponent>
-      <SuggestionsComponent suggestions={gifts} />
+      <SuggestionsComponent
+        suggestions={gifts}
+        handlerSearch={handlerSearch}
+        isSearch={isSearch}
+        setIsSearch={setIsSearch}
+      />
     </ContainerSearch>
   );
 };

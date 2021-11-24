@@ -3,6 +3,7 @@ import { AppContext } from "../../context/AppContext";
 import { Grid } from "./styles";
 import { Gift } from "../Gift";
 import { useGetGifts } from "../../hooks/useGetGifts";
+import { Spinner } from "../Spinner";
 
 const ListOfGifts = () => {
   const { state } = useContext(AppContext);
@@ -11,9 +12,8 @@ const ListOfGifts = () => {
 
   return (
     <Grid>
-      {console.log(state)}
-      {error && <h2>Error</h2>}
-      {loading && <h2>Loading</h2>}
+      {error && <h2>Houston, we have a problem</h2>}
+      {loading && <Spinner />}
       {!error &&
         !loading &&
         gifts.length &&

@@ -12,6 +12,11 @@ const Grid = styled.section`
     object-fit: cover;
     border: 1px solid rgba(190, 190, 190, 1);
   }
+  h2 {
+    grid-column: 1 /-1;
+    text-align: center;
+    color: #4a1ee3;
+  }
 `;
 
 export { Grid };
