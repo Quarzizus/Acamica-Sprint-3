@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "12"
+cache:
+  directories:
+    - ~/.npm
+git:
+  depth: 3
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN_SPRINT
+  commit_message: "Deploy Release"
+  on:
+    branch: gh-pages
