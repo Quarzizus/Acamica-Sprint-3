@@ -13,6 +13,4 @@ deploy:
   github-token: $GITHUB_TOKEN_SPRINT
   commit_message: "Deploy Release"
   on:
-    branches:
-      only:
-        - master
+    branch: gh-pages
