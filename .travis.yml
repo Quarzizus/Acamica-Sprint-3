@@ -10,7 +10,7 @@ git:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN_SPRINT
+  github-token: $GITHUB_TOKEN_SPRINT_3
   commit_message: "Deploy Release"
   on:
     branch: gh-pages
