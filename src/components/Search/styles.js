@@ -5,6 +5,9 @@ const ContainerSearch = styled.section`
   flex-direction: column;
   width: 100%;
   position: relative;
+  @media only screen and (max-width: 550px) {
+    width: 120%;
+  }
 `;
 
 const SearchComponent = styled.section`
@@ -13,7 +16,7 @@ const SearchComponent = styled.section`
   display: flex;
   align-items: center;
   border-radius: 25px;
-  border: 1px solid #4a1ee3;
+  border: 1px solid ${({ theme }) => theme.border};
 `;
 
 const Input = styled.input`
@@ -23,6 +26,8 @@ const Input = styled.input`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   margin: 0 50px;
+  color: ${({ theme }) => theme.color};
+  background-color: ${({ theme }) => theme.background};
   &:focus {
     outline: none;
   }
@@ -35,6 +40,9 @@ const Button = styled.button`
   height: 100%;
   background-color: #4a1ee3;
   cursor: pointer;
+  @media only screen and (max-width: 550px) {
+    width: 30%;
+  }
 `;
 
 export { SearchComponent, Input, Button, ContainerSearch };

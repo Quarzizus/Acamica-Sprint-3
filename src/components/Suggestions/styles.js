@@ -5,7 +5,7 @@ const Suggestions = styled.ul`
   ${({ border }) =>
     border &&
     css`
-      border: 1px solid #4a1ee3;
+      border: 1px solid ${({ theme }) => theme.border};
     `};
   border-radius: 20px;
   overflow: hidden;
@@ -20,7 +20,8 @@ const Suggestions = styled.ul`
     height: 50px;
     border-bottom: 1px solid gray;
     cursor: pointer;
-    background-color: white;
+    color: ${({ theme }) => theme.color};
+    background-color: ${({ theme }) => theme.background};
   }
   li:hover {
     background-color: rgba(142, 144, 143, 1);

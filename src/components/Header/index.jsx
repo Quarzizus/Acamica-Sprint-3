@@ -1,11 +1,13 @@
 import { HeaderComponent, Button } from "./styles";
 import { Logo } from "./Logo";
 
-const Header = () => {
+const Header = ({ theme, handlerTheme }) => {
+  const modo = theme ? "Modo Nocturno" : "Modo Light";
+
   return (
     <HeaderComponent>
-      <Logo />
-      <Button>Modo Nocturno</Button>
+      <Logo theme={theme ? "#ffffff" : "#4a1ee3"} />
+      <Button onClick={handlerTheme}>{modo}</Button>
     </HeaderComponent>
   );
 };

@@ -1,18 +1,30 @@
-import "./App.css";
 import { Header } from "../components/Header/";
+import { useState } from "react";
 import { Hero } from "../components/Hero";
 import { Search } from "../components/Search";
 import { ListOfGifts } from "../components/ListOfGifts";
+import { ThemeProvider } from "styled-components";
+import { Themes } from "../context/Themes";
+import { GlobalStyles } from "../containers/GlobalStyles";
 
 function App() {
+  const [theme, setTheme] = useState(false);
+
+  const handlerTheme = () => {
+    setTheme(!theme);
+  };
+
   return (
-    <div className="App">
-      <Header />
-      <Hero>
-        <Search />
-      </Hero>
-      <ListOfGifts />
-    </div>
+    <ThemeProvider theme={theme ? Themes["darkMode"] : Themes["lightMode"]}>
+      <GlobalStyles />
+      <div className="App">
+        <Header handlerTheme={handlerTheme} theme={theme} />
+        <Hero>
+          <Search />
+        </Hero>
+        <ListOfGifts />
+      </div>
+    </ThemeProvider>
   );
 }
 

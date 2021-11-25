@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { SearchComponent, Input, Button, ContainerSearch } from "./styles";
-// import IconSearch from "../../images/icon-search.svg";
 import { SuggestionsComponent } from "../Suggestions";
 import IconSearchWhite from "../../images/icon-search-white.svg";
 import { useGetGifts } from "../../hooks/useGetGifts";

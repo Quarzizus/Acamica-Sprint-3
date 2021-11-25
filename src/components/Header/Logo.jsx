@@ -24,7 +24,7 @@ function Logo(props) {
             fontFamily="Roboto-Black, Roboto"
             fontSize={18}
             fontWeight={700}
-            fill="#572EE5"
+            fill={props.theme}
           >
             <tspan x={3} y={21}>
               {"GIFOS"}

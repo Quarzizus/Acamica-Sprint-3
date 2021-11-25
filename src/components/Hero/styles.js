@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeroComponent = styled.section`
   height: 500px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.background};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@ const HeroComponent = styled.section`
   padding: 20px 0;
   h2,
   p {
-    color: #4a1ee3;
+    color: ${({ theme }) => theme.color};
     text-align: center;
   }
 
@@ -32,6 +32,11 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media only screen and (max-width: 550px) {
+    .Hero_img {
+      width: 120%;
+    }
+  }
 `;
 
 export { HeroComponent, Wrapper };
