@@ -1,17 +1,22 @@
 language: node_js
+cache:
+  directories:
+    - ~/.npm
 node_js:
-  - lts/*
-install:
-  - npm ci
+  - "12"
+git:
+  depth: 3
 script:
-  - npm run build
+  - yarn test
+  - yarn build
 deploy:
   provider: pages
-  skip_cleanup: true
-  local_dir: dist
-  # A token generated on GitHub allowing Travis to push code on you repository.
-  # Set in the Travis settings page of your repository, as a secure variable.
-  github_token: $GITHUB_TOKEN_SPRINT_3
-  keep_history: true
+  edge: true
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN_SPRINT_3
+  local-dir: dist/
+  target-branch: gh-pages
+  commit_message: "Deploy release ${TRAVIS_TAG}"
   on:
     branch: master
